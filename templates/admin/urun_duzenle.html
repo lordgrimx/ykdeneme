@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="mb-0">Ürün Düzenle</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="mb-3">
+                            <label for="isim" class="form-label">Ürün İsmi</label>
+                            <input type="text" class="form-control" id="isim" name="isim" 
+                                   value="{{ urun.isim }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="aciklama" class="form-label">Açıklama</label>
+                            <textarea class="form-control" id="aciklama" name="aciklama" 
+                                      rows="3" required>{{ urun.aciklama }}</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fiyat" class="form-label">Fiyat (TL)</label>
+                            <input type="number" class="form-control" id="fiyat" name="fiyat" 
+                                   value="{{ urun.fiyat }}" step="0.01" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="stok" class="form-label">Stok Miktarı</label>
+                            <input type="number" class="form-control" id="stok" name="stok" 
+                                   value="{{ urun.stok }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="resim_url" class="form-label">Resim URL</label>
+                            <input type="text" class="form-control" id="resim_url" name="resim_url" 
+                                   value="{{ urun.resim_url }}" required>
+                            <div class="form-text">Örnek: /static/img/urun-resmi.jpg</div>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-warning">Değişiklikleri Kaydet</button>
+                            <a href="{{ url_for('admin_panel') }}" class="btn btn-secondary">İptal</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
